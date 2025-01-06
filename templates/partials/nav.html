@@ -31,5 +31,10 @@
         <!-- Inititialize the theme toggle icons -->
         <script>updateItemToggleTheme()</script>
         {% endif %}
+        {% for lang_code, lang_conf in config.languages %}
+        <a href="{% if lang == 'es' %}/{% else %}/es{% endif %}" class="lang-switch">
+            {% if lang == "es" %}EN{% else %}ES{% endif %}
+        </a>
+        {% endfor %}
     </nav>
 </header>

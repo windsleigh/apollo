@@ -1,25 +1,25 @@
 {% import "macros/macros.html" as post_macros %}
-
 <!DOCTYPE html>
-<html lang="en" class="dark light">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ get_url(path='apple-touch-icon.png') }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ get_url(path='favicon-32x32.png') }}">  
+<link rel="icon" type="image/png" sizes="16x16" href="{{ get_url(path='favicon-16x16.png') }}">
 
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<html lang="{{ lang | default(value='en') }}" class="dark light">
 {% include "partials/header.html" %}
 
 <body>
     <div class="content">
         {% include "partials/nav.html" %}
-
-        {# Post page is the default #}
         {% block main_content %}
-            Nothing here?!
+        Nothing here?!
         {% endblock main_content %}
-
-        {% if page.extra.comment is defined  %}
-            {% set show_comment = page.extra.comment %}
+        {% if page.extra.comment is defined %}
+        {% set show_comment = page.extra.comment %}
         {% else %}
-            {% set show_comment = false %}
+        {% set show_comment = false %}
         {% endif %}
-
         {% if show_comment %}
         <div class="giscus"></div>
         {% include "_giscus_script.html" %}
